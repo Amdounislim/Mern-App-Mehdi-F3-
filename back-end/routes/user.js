@@ -29,6 +29,8 @@ router.delete("/:_id", (req, res) => {
         .catch(err => res.status(400).json(err))
 })
 
+
+
 router.put("/:_id", (req, res) => {
     let { _id } = req.params
     User.findByIdAndUpdate({ _id },{$set:{...req.body}})

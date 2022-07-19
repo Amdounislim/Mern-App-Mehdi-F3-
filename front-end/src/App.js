@@ -5,7 +5,7 @@ import { Link, Route, Routes } from 'react-router-dom';
 import './App.css';
 import AddUser from './components/AddUser';
 import UserCard from './components/UserCard';
-import { getUsers } from './JS/actions/actionUser';
+import { getUsers, toggleFalse } from './JS/actions/actionUser';
 
 function App() {
 
@@ -28,7 +28,7 @@ function App() {
         <Button variant="outline-primary button">Users List</Button>
       </Link>
       <Link to='/add-user' >
-        <Button variant="primary button">Add User</Button>
+        <Button variant="primary button" onClick={()=>dispatch(toggleFalse())} >Add User</Button>
       </Link>
 
       <Routes>
@@ -36,6 +36,7 @@ function App() {
           users.map((el, index) => <UserCard user={el} key={el._id} />)
         }</div>} />
         <Route path='/add-user' element={<AddUser />} />
+        <Route path='/edit-user' element={<AddUser />} />
       </Routes>
     </div>
   );
